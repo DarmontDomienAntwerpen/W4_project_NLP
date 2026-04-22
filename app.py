@@ -10,11 +10,11 @@ with open("tfidf.pkl", "rb") as f:
 
 st.title("📰 Fake News Detector")
 
-text = st.text_area("Plak hier een artikel of zin:")
+text = st.text_area("Paste your article here:")
 
 if st.button("Analyseer"):
     if text.strip() == "":
-        st.warning("Voer eerst tekst in")
+        st.warning("Please enter some text first")
     else:
         vec = tfidf.transform([text])
         pred = model.predict(vec)[0]
